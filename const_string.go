@@ -60,7 +60,7 @@ var osTypeStrings = map[OSName]string{
 	OSUnknown:      "Unknown",
 	OSWindowsPhone: "WindowsPhoneOS",
 	OSWindows:      "Windows",
-	OSMacOSX:       "",
+	OSMacOSX:       "OS X",
 	OSiOS:          "iOS",
 	OSAndroid:      "Android",
 	OSBlackberry:   "Blackberry",
