@@ -46,6 +46,8 @@ const (
 	BrowserMaxthon
 	BrowserSogouExplorer
 	BrowserSpotify
+	BrowserWebView
+	BrowserSamsung
 	BrowserBot // Bot list begins here
 	BrowserAppleBot
 	BrowserBaiduBot

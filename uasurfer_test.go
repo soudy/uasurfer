@@ -251,7 +251,7 @@ var testUAVars = []struct {
 
 	{"Mozilla/5.0 (Linux; Android 4.4.4; SD4930UR Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/34.0.0.0 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/35.0.0.48.273;]",
 		UserAgent{
-			Browser{BrowserChrome, Version{34, 0, 0}}, OS{PlatformLinux, OSKindle, Version{4, 4, 4}}, DevicePhone}}, // Facebook app on Fire Phone
+			Browser{BrowserWebView, Version{4, 0, 0}}, OS{PlatformLinux, OSKindle, Version{4, 4, 4}}, DevicePhone}}, // Facebook app on Fire Phone
 
 	{"mozilla/5.0 (linux; android 4.4.3; kfthwi build/ktu84m) applewebkit/537.36 (khtml, like gecko) version/4.0 chrome/34.0.0.0 safari/537.36 [pinterest/android]",
 		UserAgent{
@@ -318,10 +318,6 @@ var testUAVars = []struct {
 		UserAgent{
 			Browser{BrowserUnknown, Version{0, 0, 0}}, OS{PlatformUnknown, OSUnknown, Version{0, 0, 0}}, DeviceTV}},
 
-	{"mozilla/5.0 (smart-tv; linux; tizen 2.3) applewebkit/538.1 (khtml, like gecko) samsungbrowser/1.0 tv safari/538.1", // Samsung SmartTV
-		UserAgent{
-			Browser{BrowserUnknown, Version{0, 0, 0}}, OS{PlatformLinux, OSLinux, Version{0, 0, 0}}, DeviceTV}},
-
 	{"mozilla/5.0 (linux; u) applewebkit/537.36 (khtml, like gecko) version/4.0 mobile safari/537.36 smarttv/6.0 (netcast)",
 		UserAgent{
 			Browser{BrowserUnknown, Version{4, 0, 0}}, OS{PlatformLinux, OSLinux, Version{0, 0, 0}}, DeviceTV}},
@@ -339,6 +335,24 @@ var testUAVars = []struct {
 	{"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Spotify/1.0.9.133 Safari/537.36",
 		UserAgent{
 			Browser{BrowserSpotify, Version{1, 0, 9}}, OS{PlatformMac, OSMacOSX, Version{10, 10, 2}}, DeviceComputer}},
+
+	// WebView
+	{"Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.65 Mobile Safari/537.36",
+		UserAgent{
+			Browser{BrowserWebView, Version{4, 0, 0}}, OS{PlatformLinux, OSAndroid, Version{5, 1, 1}}, DevicePhone}},
+
+	{"Mozilla/5.0 (Linux; Android 7.0; Nexus 6P Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.98 Mobile Safari/537.36",
+		UserAgent{
+			Browser{BrowserWebView, Version{4, 0, 0}}, OS{PlatformLinux, OSAndroid, Version{7, 0, 0}}, DevicePhone}},
+
+	// Samsung Browser
+	{"Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-N920C Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/6.2 Chrome/56.0.2924.87 Mobile Safari/537.36",
+		UserAgent{
+			Browser{BrowserSamsung, Version{6, 2, 0}}, OS{PlatformLinux, OSAndroid, Version{7, 0, 0}}, DevicePhone}},
+
+	{"mozilla/5.0 (smart-tv; linux; tizen 2.3) applewebkit/538.1 (khtml, like gecko) samsungbrowser/1.0 tv safari/538.1", // Samsung SmartTV
+		UserAgent{
+			Browser{BrowserSamsung, Version{1, 0, 0}}, OS{PlatformLinux, OSLinux, Version{0, 0, 0}}, DeviceTV}},
 
 	// OCSP fetchers
 	{"Microsoft-CryptoAPI/10.0",
@@ -584,10 +598,6 @@ var testUAVars = []struct {
 			Browser{BrowserChrome, Version{52, 0, 2743}}, OS{PlatformLinux, OSAndroid, Version{6, 0, 1}}, DevicePhone}},
 
 	{"Mozilla/5.0 (Linux; Android 7.0; Nexus 5X Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36",
-		UserAgent{
-			Browser{BrowserChrome, Version{52, 0, 2743}}, OS{PlatformLinux, OSAndroid, Version{7, 0, 0}}, DevicePhone}},
-
-	{"Mozilla/5.0 (Linux; Android 7.0; Nexus 6P Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.98 Mobile Safari/537.36",
 		UserAgent{
 			Browser{BrowserChrome, Version{52, 0, 2743}}, OS{PlatformLinux, OSAndroid, Version{7, 0, 0}}, DevicePhone}},
 

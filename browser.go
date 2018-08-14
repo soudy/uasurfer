@@ -26,6 +26,16 @@ func (u *UserAgent) evalBrowserName(ua string) bool {
 		return u.isBot()
 	}
 
+	if strings.Contains(ua, "; wv") || (strings.Contains(ua, "version/") && strings.Contains(ua, "chrome") && strings.Contains(ua, "mobile")) {
+		u.Browser.Name = BrowserWebView
+		return u.isBot()
+	}
+
+	if strings.Contains(ua, "samsungbrowser") {
+		u.Browser.Name = BrowserSamsung
+		return u.isBot()
+	}
+
 	if strings.Contains(ua, "applewebkit") {
 		switch {
 		case strings.Contains(ua, "opr/") || strings.Contains(ua, "opios/"):
@@ -188,5 +198,8 @@ func (u *UserAgent) evalBrowserVersion(ua string) {
 
 	case BrowserSpotify:
 		_ = u.Browser.Version.findVersionNumber(ua, "spotify/")
+
+	case BrowserSamsung:
+		_ = u.Browser.Version.findVersionNumber(ua, "samsungbrowser/")
 	}
 }
