@@ -155,7 +155,7 @@ notwebkit:
 // 3rd: infer from OS (iOS only)
 func (u *UserAgent) evalBrowserVersion(ua string) {
 	// if there is a 'version/#' attribute with numeric version, use it -- except for Chrome since Android vendors sometimes hijack version/#
-	if u.Browser.Name != BrowserChrome && u.Browser.Version.findVersionNumber(ua, "version/") {
+	if u.Browser.Name != BrowserChrome && u.Browser.Name != BrowserWebView && u.Browser.Version.findVersionNumber(ua, "version/") {
 		return
 	}
 
@@ -198,6 +198,9 @@ func (u *UserAgent) evalBrowserVersion(ua string) {
 
 	case BrowserSpotify:
 		_ = u.Browser.Version.findVersionNumber(ua, "spotify/")
+
+	case BrowserWebView:
+		_ = u.Browser.Version.findVersionNumber(ua, "chrome/") || u.Browser.Version.findVersionNumber(ua, "version/")
 
 	case BrowserSamsung:
 		_ = u.Browser.Version.findVersionNumber(ua, "samsungbrowser/")
