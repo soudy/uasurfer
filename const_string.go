@@ -24,7 +24,6 @@ var browserTypeStrings = map[BrowserName]string{
 	BrowserIE:            "IE",
 	BrowserSafari:        "Safari",
 	BrowserFirefox:       "Firefox",
-	BrowserAndroid:       "Android",
 	BrowserOpera:         "Opera",
 	BrowserBlackberry:    "Blackberry",
 	BrowserUCBrowser:     "UCBrowser",
