@@ -55,7 +55,7 @@ func (u *UserAgent) evalBrowserName(ua string) bool {
 			u.Browser.Name = BrowserChrome
 
 		case strings.Contains(ua, "android") && !strings.Contains(ua, "chrome/") && strings.Contains(ua, "version/") && !strings.Contains(ua, "like android"),
-			strings.Contains(ua, "iphone") && !strings.Contains(ua, "version/") && !strings.Contains(ua, "safari"):
+			(strings.Contains(ua, "iphone") || strings.Contains(ua, "ipad")) && !strings.Contains(ua, "version/") && !strings.Contains(ua, "safari"):
 			// Android WebView on Android >= 4.4 is purposefully being identified as Chrome above -- https://developer.chrome.com/multidevice/webview/overview
 			u.Browser.Name = BrowserWebView
 
