@@ -48,6 +48,8 @@ const (
 	BrowserSpotify
 	BrowserWebView
 	BrowserSamsung
+	BrowserFacebook
+	BrowserMiui
 	BrowserBot // Bot list begins here
 	BrowserAppleBot
 	BrowserBaiduBot

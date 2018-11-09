@@ -26,13 +26,23 @@ func (u *UserAgent) evalBrowserName(ua string) bool {
 		return u.isBot()
 	}
 
-	if strings.Contains(ua, "; wv") || (strings.Contains(ua, "version/") && strings.Contains(ua, "chrome") && strings.Contains(ua, "mobile")) {
-		u.Browser.Name = BrowserWebView
+	if strings.Contains(ua, "samsungbrowser") {
+		u.Browser.Name = BrowserSamsung
 		return u.isBot()
 	}
 
-	if strings.Contains(ua, "samsungbrowser") {
-		u.Browser.Name = BrowserSamsung
+	if strings.Contains(ua, "fban") || strings.Contains(ua, "fbav") {
+		u.Browser.Name = BrowserFacebook
+		return u.isBot()
+	}
+
+	if strings.Contains(ua, "miuibrowser") {
+		u.Browser.Name = BrowserMiui
+		return u.isBot()
+	}
+
+	if strings.Contains(ua, "; wv") || (strings.Contains(ua, "version/") && strings.Contains(ua, "chrome") && strings.Contains(ua, "mobile")) {
+		u.Browser.Name = BrowserWebView
 		return u.isBot()
 	}
 

@@ -259,7 +259,7 @@ var testUAVars = []struct {
 
 	{"Mozilla/5.0 (Linux; Android 4.4.4; SD4930UR Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/34.0.0.0 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/35.0.0.48.273;]",
 		UserAgent{
-			Browser{BrowserWebView, Version{34, 0, 0}}, OS{PlatformLinux, OSKindle, Version{4, 4, 4}}, DevicePhone}}, // Facebook app on Fire Phone
+			Browser{BrowserFacebook, Version{4, 0, 0}}, OS{PlatformLinux, OSKindle, Version{4, 4, 4}}, DevicePhone}}, // Facebook app on Fire Phone
 
 	{"mozilla/5.0 (linux; android 4.4.3; kfthwi build/ktu84m) applewebkit/537.36 (khtml, like gecko) version/4.0 chrome/34.0.0.0 safari/537.36 [pinterest/android]",
 		UserAgent{
@@ -359,7 +359,7 @@ var testUAVars = []struct {
 
 	{"Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 [FBAN/FBIOS;FBAV/86.0.0.48.52;FBBV/53842252;FBDV/iPhone9,1;FBMD/iPhone;FBSN/iOS;FBSV/10.2.1;FBSS/2;FBCR/Verizon;FBID/phone;FBLC/en_US;FBOP/5;FBRV/0]",
 		UserAgent{
-			Browser{BrowserWebView, Version{0, 0, 0}}, OS{PlatformiPhone, OSiOS, Version{10, 2, 1}}, DevicePhone}},
+			Browser{BrowserFacebook, Version{0, 0, 0}}, OS{PlatformiPhone, OSiOS, Version{10, 2, 1}}, DevicePhone}},
 
 	// Samsung Browser
 	{"Mozilla/5.0 (Linux; Android 7.0; SAMSUNG SM-N920C Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/6.2 Chrome/56.0.2924.87 Mobile Safari/537.36",
