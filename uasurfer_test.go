@@ -277,7 +277,7 @@ var testUAVars = []struct {
 
 	{"Mozilla/5.0 (Nintendo WiiU) AppleWebKit/534.52 (KHTML, like Gecko) NX/2.1.0.8.21 NintendoBrowser/1.0.0.7494.US",
 		UserAgent{
-			Browser{BrowserUnknown, Version{0, 0, 0}}, OS{PlatformNintendo, OSNintendo, Version{0, 0, 0}}, DeviceConsole}},
+			Browser{BrowserNintendo, Version{0, 0, 0}}, OS{PlatformNintendo, OSNintendo, Version{0, 0, 0}}, DeviceConsole}},
 
 	// Xbox
 	{"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)", //Xbox 360
@@ -326,6 +326,10 @@ var testUAVars = []struct {
 		UserAgent{
 			Browser{BrowserUnknown, Version{0, 0, 0}}, OS{PlatformUnknown, OSUnknown, Version{0, 0, 0}}, DeviceTV}},
 
+	{"mozilla/5.0 (smart-tv; linux; tizen 2.3) applewebkit/538.1 (khtml, like gecko) samsungbrowser/1.0 tv safari/538.1", // Samsung SmartTV
+		UserAgent{
+			Browser{BrowserSamsung, Version{1, 0, 0}}, OS{PlatformLinux, OSLinux, Version{0, 0, 0}}, DeviceTV}},
+
 	{"mozilla/5.0 (linux; u) applewebkit/537.36 (khtml, like gecko) version/4.0 mobile safari/537.36 smarttv/6.0 (netcast)",
 		UserAgent{
 			Browser{BrowserUnknown, Version{4, 0, 0}}, OS{PlatformLinux, OSLinux, Version{0, 0, 0}}, DeviceTV}},
@@ -355,7 +359,7 @@ var testUAVars = []struct {
 
 	{"Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60 QQ/7.1.8.452 V1_IPH_SQ_7.1.8_1_APP_A Pixel/1080 Core/UIWebView NetType/WIFI QBWebViewType/1",
 		UserAgent{
-			Browser{BrowserWebView, Version{0, 0, 0}}, OS{PlatformiPhone, OSiOS, Version{10, 3, 3}}, DevicePhone}},
+			Browser{BrowserQQ, Version{7, 1, 8}}, OS{PlatformiPhone, OSiOS, Version{10, 3, 3}}, DevicePhone}},
 
 	{"Mozilla/5.0 (iPhone; CPU iPhone OS 10_2_1 like Mac OS X) AppleWebKit/602.4.6 (KHTML, like Gecko) Mobile/14D27 [FBAN/FBIOS;FBAV/86.0.0.48.52;FBBV/53842252;FBDV/iPhone9,1;FBMD/iPhone;FBSN/iOS;FBSV/10.2.1;FBSS/2;FBCR/Verizon;FBID/phone;FBLC/en_US;FBOP/5;FBRV/0]",
 		UserAgent{
@@ -433,8 +437,13 @@ var testUAVars = []struct {
 		UserAgent{
 			Browser{BrowserYahooBot, Version{0, 0, 0}}, OS{PlatformBot, OSBot, Version{0, 0, 0}}, DeviceComputer}},
 
-	// {"Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
-	// 	BrowserBot, Version{0,0,0}}, OS{PlatformBot, OSBot, Version{6,0,0}}, DeviceComputer}},
+	{"{UA:Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)}, ua: &{Browser:{Name:BrowserGoogleBot Version:{Major:0 Minor:0 Patch:0}} OS:{Platform:PlatformBot Name:OSBot Version:{Major:6 Minor:0 Patch:1}} DeviceType:DeviceComputer}",
+		UserAgent{
+			Browser{BrowserGoogleBot, Version{0, 0, 0}}, OS{PlatformBot, OSBot, Version{6, 0, 1}}, DeviceComputer}},
+
+	{"Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+		UserAgent{
+			Browser{BrowserGoogleBot, Version{0, 0, 0}}, OS{PlatformBot, OSBot, Version{6, 0, 0}}, DeviceComputer}},
 
 	{"mozilla/5.0 (unknown; linux x86_64) applewebkit/538.1 (khtml, like gecko) phantomjs/2.1.1 safari/538.1",
 		UserAgent{
@@ -462,13 +471,17 @@ var testUAVars = []struct {
 			Browser{BrowserOpera, Version{10, 0, 0}}, OS{PlatformUnknown, OSUnknown, Version{0, 0, 0}}, DevicePhone}},
 
 	// BrowserQQ
-	// {"Mozilla/5.0 (Windows NT 6.2; WOW64; Trident/7.0; Touch; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; InfoPath.3; Tablet PC 2.0; QQBrowser/7.6.21433.400; rv:11.0) like Gecko",
-	// 	UserAgent{
-	//		Browser{BrowserQQ, Version{7,0,0}}, OS{PlatformWindows, OSWindows, Version{8,0,0}}, DeviceTablet}},
+	{"Mozilla/5.0 (Windows NT 6.2; WOW64; Trident/7.0; Touch; .NET4.0E; .NET4.0C; .NET CLR 3.5.30729; .NET CLR 2.0.50727; .NET CLR 3.0.30729; InfoPath.3; Tablet PC 2.0; QQBrowser/7.6.21433.400; rv:11.0) like Gecko",
+		UserAgent{
+			Browser{BrowserQQ, Version{7, 6, 21433}}, OS{PlatformWindows, OSWindows, Version{6, 2, 0}}, DeviceTablet}},
 
-	// {"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36 QQBrowser/9.0.2191.400",
-	// 	UserAgent{
-	//		Browser{BrowserQQ, Version{9,0,0}}, OS{PlatformWindows, OSWindows, Version{7,0,0}}, DeviceComputer}},
+	{"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36 QQBrowser/9.0.2191.400",
+		UserAgent{
+			Browser{BrowserQQ, Version{9, 0, 2191}}, OS{PlatformWindows, OSWindows, Version{6, 1, 0}}, DeviceComputer}},
+
+	{"mozilla/5.0 (iphone; cpu iphone os 8_1_2 like mac os x) applewebkit/600.1.4 (khtml, like gecko) mobile/12b440 qq/5.3.0.319 nettype/wifi mem/205",
+		UserAgent{
+			Browser{BrowserQQ, Version{5, 3, 0}}, OS{PlatformiPhone, OSiOS, Version{8, 1, 2}}, DevicePhone}},
 
 	// ANDROID TESTS
 
@@ -823,11 +836,11 @@ var testUAVars = []struct {
 
 	{"Mozilla/5.0 (Nintendo WiiU) AppleWebKit/534.52 (KHTML, like Gecko) NX/2.1.0.8.21 NintendoBrowser/1.0.0.7494.US",
 		UserAgent{
-			Browser{BrowserUnknown, Version{0, 0, 0}}, OS{PlatformNintendo, OSNintendo, Version{0, 0, 0}}, DeviceConsole}},
+			Browser{BrowserNintendo, Version{0, 0, 0}}, OS{PlatformNintendo, OSNintendo, Version{0, 0, 0}}, DeviceConsole}},
 
 	{"Mozilla/5.0 (Nintendo WiiU) AppleWebKit/536.28 (KHTML, like Gecko) NX/3.0.3.12.6 NintendoBrowser/2.0.0.9362.US",
 		UserAgent{
-			Browser{BrowserUnknown, Version{0, 0, 0}}, OS{PlatformNintendo, OSNintendo, Version{0, 0, 0}}, DeviceConsole}},
+			Browser{BrowserNintendo, Version{0, 0, 0}}, OS{PlatformNintendo, OSNintendo, Version{0, 0, 0}}, DeviceConsole}},
 
 	// TODO fails to get opera first -- but is this a real UA string or an uncommon spoof?
 	// {"Mozilla/4.0 (compatible; MSIE 5.0; Windows 2000) Opera 6.0 [en]",
@@ -851,7 +864,7 @@ var testUAVars = []struct {
 
 	{"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/536.5 (KHTML, like Gecko) YaBrowser/1.0.1084.5402 Chrome/19.0.1084.5402 Safari/536.5",
 		UserAgent{
-			Browser{BrowserChrome, Version{19, 0, 1084}}, OS{PlatformWindows, OSWindows, Version{6, 2, 0}}, DeviceComputer}},
+			Browser{BrowserYandex, Version{1, 0, 1084}}, OS{PlatformWindows, OSWindows, Version{6, 2, 0}}, DeviceComputer}},
 
 	{"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.15 (KHTML, like Gecko) Chrome/24.0.1295.0 Safari/537.15",
 		UserAgent{
@@ -945,6 +958,12 @@ var testUAVars = []struct {
 	{"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox)",
 		UserAgent{
 			Browser{BrowserIE, Version{9, 0, 0}}, OS{PlatformXbox, OSXbox, Version{6, 1, 0}}, DeviceConsole}},
+	{"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) coc_coc_browser/42.0 CoRom/36.0.1985.144 Chrome/36.0.1985.144 Safari/537.36",
+		UserAgent{
+			Browser{BrowserCocCoc, Version{42, 0, 0}}, OS{PlatformWindows, OSWindows, Version{6, 3, 0}}, DeviceComputer}},
+	{"Mozilla/5.0 (compatible; coccocbot/1.0; +http://help.coccoc.com/searchengine)",
+		UserAgent{
+			Browser{BrowserCocCocBot, Version{0, 0, 0}}, OS{PlatformBot, OSBot, Version{0, 0, 0}}, DeviceComputer}},
 }
 
 func TestAgentSurfer(t *testing.T) {
@@ -1092,5 +1111,38 @@ func BenchmarkParseSafariiPad(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		Parse("Mozilla/5.0 (iPad; CPU OS 8_1_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B440 Safari/600.1.4")
+	}
+}
+
+func TestStringTrimPrefix(t *testing.T) {
+	testCases := []struct {
+		f        func() string
+		expected string
+	}{
+		{
+			f:        DeviceUnknown.StringTrimPrefix,
+			expected: "unknown",
+		},
+		{
+			f:        BrowserUnknown.StringTrimPrefix,
+			expected: "Unknown",
+		},
+		{
+			f:        OSUnknown.StringTrimPrefix,
+			expected: "Unknown",
+		},
+		{
+			f:        PlatformUnknown.StringTrimPrefix,
+			expected: "Unknown",
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run("", func(t *testing.T) {
+			s := tc.f()
+			if tc.expected != s {
+				t.Fatalf("Expected %q, got %q", tc.expected, s)
+			}
+		})
 	}
 }
