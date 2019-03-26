@@ -41,6 +41,21 @@ func (u *UserAgent) evalBrowserName(ua string) bool {
 		return u.IsBot()
 	}
 
+	if strings.Contains(ua, "crosswalk") {
+		u.Browser.Name = BrowserCrosswalk
+		return u.IsBot()
+	}
+
+	if strings.Contains(ua, "line/") {
+		u.Browser.Name = BrowserLine
+		return u.IsBot()
+	}
+
+	if strings.Contains(ua, "ucbrowser/") || strings.Contains(ua, "ucweb/") {
+		u.Browser.Name = BrowserUCBrowser
+		return u.IsBot()
+	}
+
 	if strings.Contains(ua, "; wv") || (strings.Contains(ua, "version/") && strings.Contains(ua, "chrome") && strings.Contains(ua, "mobile")) {
 		u.Browser.Name = BrowserWebView
 		return u.IsBot()
@@ -62,9 +77,6 @@ func (u *UserAgent) evalBrowserName(ua string) bool {
 
 		case strings.Contains(ua, "edge/") || strings.Contains(ua, "iemobile/") || strings.Contains(ua, "msie "):
 			u.Browser.Name = BrowserIE
-
-		case strings.Contains(ua, "ucbrowser/") || strings.Contains(ua, "ucweb/"):
-			u.Browser.Name = BrowserUCBrowser
 
 		case strings.Contains(ua, "nintendobrowser/"):
 			u.Browser.Name = BrowserNintendo
@@ -190,7 +202,9 @@ notwebkit:
 // 3rd: infer from OS (iOS only)
 func (u *UserAgent) evalBrowserVersion(ua string) {
 	// if there is a 'version/#' attribute with numeric version, use it -- except for Chrome since Android vendors sometimes hijack version/#
-	if u.Browser.Name != BrowserChrome && u.Browser.Name != BrowserWebView && u.Browser.Version.findVersionNumber(ua, "version/") {
+	if u.Browser.Name != BrowserChrome && u.Browser.Name != BrowserWebView &&
+		u.Browser.Name != BrowserLine && u.Browser.Name != BrowserUCBrowser &&
+		u.Browser.Version.findVersionNumber(ua, "version/") {
 		return
 	}
 
@@ -248,5 +262,11 @@ func (u *UserAgent) evalBrowserVersion(ua string) {
 
 	case BrowserCocCoc:
 		_ = u.Browser.Version.findVersionNumber(ua, "coc_coc_browser/")
+
+	case BrowserCrosswalk:
+		_ = u.Browser.Version.findVersionNumber(ua, "crosswalk/")
+
+	case BrowserLine:
+		_ = u.Browser.Version.findVersionNumber(ua, "line/")
 	}
 }

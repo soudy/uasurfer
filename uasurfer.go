@@ -58,6 +58,8 @@ const (
 	BrowserNintendo
 	BrowserCocCoc
 	BrowserYandex
+	BrowserCrosswalk
+	BrowserLine
 	BrowserBot // Bot list begins here
 	BrowserAppleBot
 	BrowserBaiduBot

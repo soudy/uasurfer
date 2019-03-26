@@ -173,6 +173,20 @@ var testUAVars = []struct {
 		UserAgent{
 			Browser{BrowserUCBrowser, Version{9, 4, 0}}, OS{PlatformUnknown, OSUnknown, Version{0, 0, 0}}, DevicePhone}},
 
+	{"Mozilla/5.0 (Linux; U; Android 6.0.1; en-US; SM-G532F Build/MMB29T) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 UCBrowser/12.10.0.1178 Mobile Safari/537.36",
+		UserAgent{
+			Browser{BrowserUCBrowser, Version{12, 10, 0}}, OS{PlatformLinux, OSAndroid, Version{6, 0, 1}}, DevicePhone}},
+
+	// Crosswalk
+	{"Mozilla/5.0 (Linux; Android 8.0; SM-N950N Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Crosswalk/20.50.533.67 Mobile Safari/537.36 NAVER(inapp; search; 591; 9.0.6)",
+		UserAgent{
+			Browser{BrowserCrosswalk, Version{20, 50, 533}}, OS{PlatformLinux, OSAndroid, Version{8, 0, 0}}, DevicePhone}},
+
+	// Line
+	{"Mozilla/5.0 (Linux; Android 8.0.0; SM-A605G Build/R16NW; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 Mobile Safari/537.36 Line/8.19.1/IAB",
+		UserAgent{
+			Browser{BrowserLine, Version{8, 19, 1}}, OS{PlatformLinux, OSAndroid, Version{8, 0, 0}}, DevicePhone}},
+
 	// Nokia Browser
 	// {"Mozilla/5.0 (Series40; Nokia501/14.0.4/java_runtime_version=Nokia_Asha_1_2; Profile/MIDP-2.1 Configuration/CLDC-1.1) Gecko/20100401 S40OviBrowser/4.0.0.0.45",
 	// 	UserAgent{
