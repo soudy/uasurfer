@@ -38,6 +38,7 @@ var browserTypeStrings = map[BrowserName]string{
 	BrowserSamsung:       "SamsungBrowser",
 	BrowserFacebook:      "Facebook",
 	BrowserMiui:          "MiuiBrowser",
+	BrowserCocCoc:        "CocCocBrowser",
 	BrowserAppleBot:      "AppleBot",
 	BrowserBaiduBot:      "BaiduBot",
 	BrowserBingBot:       "BingBot",
